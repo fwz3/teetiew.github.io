@@ -1,0 +1,21 @@
+RewriteEngine On
+
+RewriteRule ^sitemap.xml$ /sitemap.php [L,QSA]
+
+RewriteRule ^rss.xml$ /rss.php [L,QSA]
+
+RewriteRule ^all.html$ /all.php [L,QSA]
+
+RewriteRule ^topic/(.*)/(.*).html$ /detail.php?t=$1&title=$2 [L]
+
+#Block file dowload 
+<FilesMatch ".(csv)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+#Block file dowload 
+<FilesMatch ".(txt)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
